@@ -212,12 +212,12 @@ const sortMeetingsByDay = (arr) => {
   }
 
   arr.sort((a, b) => {
-    let day1 = a.dayOfWeek.toLowerCase();
-    let day2 = b.dayOfWeek.toLowerCase();
-    if (dayOrder[day1] < dayOrder[day2]) {
+    let dayA = a.dayOfWeek.toLowerCase();
+    let dayB = b.dayOfWeek.toLowerCase();
+    if (dayOrder[dayA] < dayOrder[dayB]) {
       return -1;
     }
-    else if (dayOrder[day1] > dayOrder[day2]) {
+    else if (dayOrder[dayA] > dayOrder[dayB]) {
       return 1;
     }
     else {
