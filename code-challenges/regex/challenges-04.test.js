@@ -66,15 +66,8 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  let regex = [/\w*\boctober\b/g, /\w*\boct\b/g, /\w*\bOct\b/g, /\w*\bOctober\b/g];
-  for (let i = 0; i < regex.length; i ++) {
-    if (regex[i].test(input)) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
+  let regex = /^[oO]ct(ober)?$/g;
+  return regex.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -87,15 +80,14 @@ For example, if given the string "Hello, and have a wonderful day!", the word "H
 The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "a ", "wonderful "].
 ------------------------------------------------------------------------------------------------ */
 
-const noPunctuation = str => {
-  let regex = /\w*[a-z|\d]\s/gi;
-  let output = [];
-  for (let i = 0; i < str.length; i++) {
-    if (str[i].match(regex)) {
-      output.push(str[i]);
-    }
+const noPunctuation = (str) => {
+  let empty = [];
+  let regex = /\w*([a-z|\d])\s/gi;
+  let newStr = str.match(regex);
+  if (!newStr) {
+    return empty;
   }
-  return output;
+  return (newStr);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,10 +103,8 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
 let hangman = (str) => {
-  let regex = 
-  if (str.match(regex)) {
-    str.replace();
-  }
+  let regex = /[aeiou]/gi;
+  str = str.replace(regex, '_');
   return str;
 };
 
